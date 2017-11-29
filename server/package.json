@@ -1,0 +1,42 @@
+{
+  "name": "weight-challenge-server",
+  "version": "1.0.0",
+  "description": "weight-challenge-server",
+  "main": "bin/index.js",
+  "scripts": {
+    "start": "pm2 reload ecosystem.config.js",
+    "dev": "pm2 reload ecosystem.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weight",
+    "server"
+  ],
+  "author": "Jayden <jxdjayden@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "debug": "^3.1.0",
+    "koa": "^2.4.1",
+    "koa-better-body": "^3.0.4",
+    "koa-better-router": "^2.1.1",
+    "koa-better-serve": "^2.0.7",
+    "koa-json-body": "^5.3.0",
+    "koa-logger": "^3.1.0",
+    "log4js": "^2.3.12",
+    "mkdirp": "^0.5.1",
+    "mongoose": "^4.13.5",
+    "pm2": "^2.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-async-await": "^0.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "prettier": "^1.8.2",
+    "prettier-eslint": "^8.2.2"
+  }
+}
