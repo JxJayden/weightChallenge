@@ -2,20 +2,21 @@ const log4js = require('log4js')
 const path = require('path')
 
 const LOG_CONFIG = {
-    appenders: [
-        {
-            type: 'console'
-        },
-        {
+    appenders: {
+        out: { type: 'console', },
+        task: {
             type: 'dateFile',
-            level: 'ERROR',
             filename: `${__dirname}/../logs/server`,
             pattern: '-yyyy-MM-dd.log',
             alwaysIncludePattern: true,
             maxLogSize: 20480,
-            backups: 3
-        }
-    ]
+            backups: 3,
+        },
+    },
+    categories: {
+        default: { appenders: [ 'out', ], level: 'info', },
+        task: { appenders: [ 'task', ], level: 'error', },
+    },
 }
 
 log4js.configure(LOG_CONFIG)
