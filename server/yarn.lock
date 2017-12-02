@@ -414,7 +414,7 @@ cli-width@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
 
-co-body@^5.0.0:
+co-body@^5.0.0, co-body@^5.1.0:
   version "5.1.1"
   resolved "https://registry.npmjs.org/co-body/-/co-body-5.1.1.tgz#d97781d1e3344ba4a820fd1806bddf8341505236"
   dependencies:
@@ -506,6 +506,10 @@ cookies@~0.7.0:
   dependencies:
     depd "~1.1.1"
     keygrip "~1.0.2"
+
+copy-to@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/copy-to/-/copy-to-2.0.1.tgz#2680fbb8068a48d08656b6098092bdafc906f4a5"
 
 core-js@^2.4.0:
   version "2.5.1"
@@ -998,10 +1002,6 @@ form-data@~2.3.1:
     asynckit "^0.4.0"
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
-
-formidable@^1.0.17:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/formidable/-/formidable-1.1.1.tgz#96b8886f7c3c3508b932d6bd70c4d3a88f35f1a9"
 
 fresh@^0.5.2:
   version "0.5.2"
@@ -1628,14 +1628,6 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
-koa-better-body@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.npmjs.org/koa-better-body/-/koa-better-body-3.0.4.tgz#de49f544e4d6e1d9858f6c4880aedf2b8ac88759"
-  dependencies:
-    extend-shallow "^2.0.1"
-    formidable "^1.0.17"
-    koa-body-parsers "git+https://github.com/tunnckoCore/body-parsers.git"
-
 koa-better-router@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/koa-better-router/-/koa-better-router-2.1.1.tgz#8498664659204bedfb7cb72f99c8ca1f17d6628f"
@@ -1655,11 +1647,12 @@ koa-better-serve@^2.0.7:
     kind-of "5.0.2"
     koa-send "4.1.1"
 
-"koa-body-parsers@git+https://github.com/tunnckoCore/body-parsers.git":
-  version "3.0.0"
-  resolved "git+https://github.com/tunnckoCore/body-parsers.git#b515504ef0bfe3e04aa3dd13502d3d90c2d60956"
+koa-bodyparser@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/koa-bodyparser/-/koa-bodyparser-4.2.0.tgz#bce6e08bc65f8709b6d1faa9411c7f0d8938aa54"
   dependencies:
-    raw-body "^2.1.0"
+    co-body "^5.1.0"
+    copy-to "^2.0.1"
 
 koa-compose@^3.0.0, koa-compose@^3.1.0:
   version "3.2.1"
@@ -2525,7 +2518,7 @@ randomatic@^1.1.3:
     is-number "^3.0.0"
     kind-of "^4.0.0"
 
-raw-body@2, raw-body@^2.1.0, raw-body@^2.2.0:
+raw-body@2, raw-body@^2.2.0:
   version "2.3.2"
   resolved "https://registry.npmjs.org/raw-body/-/raw-body-2.3.2.tgz#bcd60c77d3eb93cde0050295c3f379389bc88f89"
   dependencies:
