@@ -1,4 +1,4 @@
-const CODE = {
+const RES_CODE = {
     // 0表示成功
     SUCCESS: 0,
     // -1~-9预留
@@ -16,6 +16,7 @@ const CODE = {
     ERR_NO_LOGIN: -1001, // 用户未登录
     ERR_ACCESS_DENIED: -1002, // 没有权限
     ERR_NO_USER: -1003,
+    ERR_USER_EXIT: -1004,
 }
 
-module.exports = CODE
+module.exports = { RES_CODE, }
