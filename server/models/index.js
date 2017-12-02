@@ -1,4 +1,4 @@
 module.exports = {
-    userModel: require('./user'),
-    weightModel: require('./weight'),
+    UserModel: require('./user'),
+    WeightModel: require('./weight'),
 }

@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt-nodejs')
-const logger = require('../lib/logger')('model-user')
+const logger = require('../lib/log')('model-user')
 const { Schema, mongoose, } = require('../lib/mongoose')
-const CODE = require('../config/response-code')
+const { RES_CODE, } = require('../config')
 
 const userSchema = new Schema({
     username: {
@@ -14,14 +14,14 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true,
+        default: '',
     },
     // 用户权限
-    limits: {
-        type: Array,
-        default: [],
+    limit_code: {
+        type: Number,
+        required: true,
     },
-    wechat: {
+    wechat_info: {
         type: Object,
         default: {},
     },
@@ -44,7 +44,7 @@ userSchema.statics.login = function (username, password) {
         .then(user => {
             if (!user) {
                 throw new Error({
-                    code: CODE.ERR_NO_USER,
+                    code: RES_CODE.ERR_NO_USER,
                     message: `The user ${username} is not exist!`,
                 })
             }
@@ -53,7 +53,7 @@ userSchema.statics.login = function (username, password) {
 
             if (!isPasswordCorrect) {
                 throw new Error({
-                    code: CODE.ERR_PASSWORD_INCORRECT,
+                    code: RES_CODE.ERR_PASSWORD_INCORRECT,
                     message: 'password is incorrect, please check it again!',
                 })
             }

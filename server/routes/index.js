@@ -1,13 +1,9 @@
 const Router = require('koa-better-router')
-const body = require('koa-better-body')
-const router = Router().loadMethods()
-const api = Router({ prefix: '/api' })
+const { API_PREFIX, } = require('../config')
+const router = Router({ prefix: API_PREFIX, }).loadMethods()
+const userRoutes = require('./user')
+const checkBodyIsEmpty = require('../lib/check-body-empty')
 
-router.get('/*', body(), (ctx, next) => {
-    ctx.body = `Hello world! Url: ${ctx.url}`
-    return next()
-})
+router.post('/user', checkBodyIsEmpty, userRoutes.register)
 
-api.extend(router)
-
-module.exports = { api, router }
+module.exports = router
