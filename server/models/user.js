@@ -43,22 +43,26 @@ userSchema.statics.login = function (username, password) {
         .exec()
         .then(user => {
             if (!user) {
-                throw new Error({
-                    code: RES_CODE.ERR_NO_USER,
-                    message: `The user ${username} is not exist!`,
-                })
+                return [
+                    {
+                        code: RES_CODE.ERR_NO_USER,
+                        message: `The user ${username} is not exist!`,
+                    },
+                ]
             }
 
             const isPasswordCorrect = bcrypt.compareSync(password, user.password)
 
             if (!isPasswordCorrect) {
-                throw new Error({
-                    code: RES_CODE.ERR_PASSWORD_INCORRECT,
-                    message: 'password is incorrect, please check it again!',
-                })
+                return [
+                    {
+                        code: RES_CODE.ERR_PASSWORD_INCORRECT,
+                        msg: 'password is incorrect, please check it again!',
+                    },
+                ]
             }
 
-            return user
+            return [null, user, ]
         })
 }
 

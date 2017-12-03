@@ -17,6 +17,9 @@ const RES_CODE = {
     ERR_ACCESS_DENIED: -1002, // 没有权限
     ERR_NO_USER: -1003,
     ERR_USER_EXIT: -1004,
+    ERR_USER_NO_EFFECTIVE: -1005,
 }
 
-module.exports = { RES_CODE, }
+const LOGIN_STATE_DURATION = 28800000
+
+module.exports = { RES_CODE, LOGIN_STATE_DURATION, }
